@@ -1,99 +1,318 @@
-<!doctype html>
-<html lang="zh-CN">
+<!DOCTYPE html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Third Wave Solutions - Your trusted partner for buying and selling businesses in East Africa. Connect with verified business opportunities." />
-    <meta name="keywords" content="business for sale, buy business, sell business, business brokerage, East Africa, Kenya" />
-    <title>Third Wave Solutions - Buy & Sell Businesses</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    <meta
+      name="description"
+      content="Thirdwave by Third Wave Solutions connects buyers and sellers of businesses across Kenya and East Africa."
     />
-    <style>
-      /* 内联样式确保主题色立即生效，避免闪烁 */
-      html,
-      body {
-        margin: 0;
-        padding: 0;
-        width: 100%;
-        height: 100%;
-      }
-      html.light,
-      html.light body {
-        background-color: #ffffff !important;
-        color: #000000;
-      }
-      html.dark,
-      html.dark body {
-        background-color: #1a1a1a !important;
-        color: #ffffff;
-      }
-    </style>
-    <script>
-      // 在 React 加载前立即设置主题，避免闪烁
-      (function () {
-        const isInIframe = window.self !== window.top;
-
-        function applyThemeToDOM(theme) {
-          document.documentElement.classList.remove("light", "dark");
-          document.documentElement.classList.add(theme);
-          document.documentElement.setAttribute("data-theme", theme);
-        }
-
-        if (isInIframe) {
-          // 监听父窗口主动推送的主题消息
-          window.addEventListener("message", function (event) {
-            if (event.data && typeof event.data.theme === "string") {
-              const theme = event.data.theme;
-              if (theme === "light" || theme === "dark") {
-                applyThemeToDOM(theme);
-              }
-            }
-          });
-        } else {
-          // 非 iframe 环境，使用默认 light 主题
-          applyThemeToDOM("light");
-        }
-      })();
-    </script>
-      <script>
-      (function () {
-        if (window.self === window.top) return;
-        var reported = {};
-        window.addEventListener("error", function (event) {
-          // 资源加载失败的 error 事件没有 message，此处仅上报 JS 运行时错误
-          if (!event || !event.message) return;
-          var key =
-            event.message + "|" + (event.filename || "") + "|" + (event.lineno || 0);
-          if (reported[key]) return; // 相同错误只上报一次，避免渲染循环刷屏
-          reported[key] = true;
-          try {
-            window.parent.postMessage(
-              {
-                type: "sandbox-runtime-error",
-                payload: {
-                  message: String(event.message).slice(0, 500),
-                  filename: event.filename || "",
-                  lineno: event.lineno || 0,
-                  colno: event.colno || 0,
-                  stack:
-                    event.error && event.error.stack
-                      ? String(event.error.stack).slice(0, 2000)
-                      : ""
-                }
-              },
-              "*"
-            );
-          } catch (e) {
-            /* 上报失败不影响页面运行 */
-          }
-        });
-      })();
-    </script>
+    <title>thirdwave | Third Wave Solutions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <header class="site-header">
+      <div class="container nav">
+        <a href="#top" class="brand" aria-label="Thirdwave home">
+          <span class="brand-word">thirdwave</span>
+          <span class="brand-subtitle">third wave solutions</span>
+        </a>
+
+        <nav class="main-nav" aria-label="Main navigation">
+          <a href="#about">About</a>
+          <a href="#listings">Businesses</a>
+          <a href="#submit">List Your Business</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <a href="#contact" class="button button-primary">Talk to us</a>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">Successful transitions start here</p>
+            <h1>Buy or sell a business with confidence.</h1>
+            <p class="lead">
+              Thirdwave connects business buyers and sellers with a modern, simple,
+              and direct experience tailored to growth-minded entrepreneurs.
+            </p>
+
+            <div class="cta-row">
+              <a href="#submit" class="button button-primary">Submit a business</a>
+              <a href="#contact" class="button button-secondary">Contact S. Lakhani</a>
+            </div>
+
+            <ul class="feature-list" aria-label="Key benefits">
+              <li>Business opportunities for buyers</li>
+              <li>Listings for sellers ready to move</li>
+              <li>Direct contact and review support</li>
+            </ul>
+          </div>
+
+          <div class="hero-panel">
+            <div class="panel-header">
+              <span class="badge">Featured</span>
+              <span class="mini-tag">Kenya / East Africa</span>
+            </div>
+
+            <div class="listing-visual">
+              <div class="listing-image"></div>
+              <div class="listing-price">KES 12.5M</div>
+            </div>
+
+            <div class="listing-summary">
+              <h2>Prime Service Business</h2>
+              <p>
+                Established operations, strong recurring revenue, and room for expansion.
+              </p>
+              <div class="meta-row">
+                <span>Retail</span>
+                <span>Location: Nairobi</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="section section-light">
+        <div class="container narrow">
+          <p class="section-tag">About Third Wave Solutions</p>
+          <h2>Helping business owners move forward.</h2>
+          <p>
+            At Third Wave Solutions, we help entrepreneurs connect with serious buyers
+            and motivated sellers. Whether you are acquiring a profitable operation or
+            preparing to exit, we make the process clearer and more direct.
+          </p>
+        </div>
+      </section>
+
+      <section id="listings" class="section">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <p class="section-tag">Opportunities</p>
+              <h2>Available businesses</h2>
+            </div>
+            <a href="#submit" class="text-link">List yours here</a>
+          </div>
+
+          <div class="card-grid">
+            <article class="listing-card">
+              <div class="card-image card-one"></div>
+              <div class="card-body">
+                <span class="card-label">Hospitality</span>
+                <h3>Urban Coffee House</h3>
+                <p>Well-established café with steady foot traffic and loyal clientele.</p>
+                <div class="card-meta">
+                  <span>Nairobi</span>
+                  <strong>KES 8.2M</strong>
+                </div>
+              </div>
+            </article>
+
+            <article class="listing-card">
+              <div class="card-image card-two"></div>
+              <div class="card-body">
+                <span class="card-label">Logistics</span>
+                <h3>Fleet Management Firm</h3>
+                <p>Strong local contracts and efficient operations with room to scale.</p>
+                <div class="card-meta">
+                  <span>Mombasa</span>
+                  <strong>KES 15.0M</strong>
+                </div>
+              </div>
+            </article>
+
+            <article class="listing-card">
+              <div class="card-image card-three"></div>
+              <div class="card-body">
+                <span class="card-label">Retail</span>
+                <h3>Home Goods Outlet</h3>
+                <p>Retail brand with repeat customers, strategic location, and clean records.</p>
+                <div class="card-meta">
+                  <span>Kisumu</span>
+                  <strong>KES 6.8M</strong>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="submit" class="section section-dark">
+        <div class="container form-layout">
+          <div class="info-panel">
+            <p class="section-tag light">Sell your business</p>
+            <h2>List a business for sale</h2>
+            <p>
+              Submit details for your business listing, including key facts, location, asking
+              price, and photos. Your submission is reviewed and can be sent to
+              <strong>s.lakhani1@aim.com</strong> for approval and follow-up.
+            </p>
+
+            <div class="contact-card">
+              <h3>Contact information</h3>
+              <ul>
+                <li><strong>Name:</strong> S. Lakhani</li>
+                <li><strong>Cell:</strong> +254733861663</li>
+                <li><strong>Email:</strong> s.lakhani1@aim.com</li>
+              </ul>
+            </div>
+          </div>
+
+          <form
+            class="business-form"
+            method="POST"
+            action="https://formspree.io/f/your-listing-form-id"
+            enctype="multipart/form-data"
+          >
+            <input type="hidden" name="_subject" value="New Thirdwave business listing submission" />
+            <input type="hidden" name="_cc" value="s.lakhani1@aim.com" />
+
+            <div class="field-grid">
+              <label>
+                Business name
+                <input type="text" name="business_name" placeholder="Enter business name" required />
+              </label>
+
+              <label>
+                Business category
+                <input type="text" name="business_category" placeholder="e.g. Hospitality, Retail" required />
+              </label>
+
+              <label>
+                Location
+                <input type="text" name="business_location" placeholder="City or region" required />
+              </label>
+
+              <label>
+                Asking price
+                <input type="text" name="asking_price" placeholder="KES 5,000,000" required />
+              </label>
+
+              <label class="full-width">
+                Business description
+                <textarea
+                  name="business_description"
+                  rows="5"
+                  placeholder="Tell us about the business, customer base, operations, and why it is for sale."
+                  required
+                ></textarea>
+              </label>
+
+              <label class="full-width">
+                Upload business photos
+                <input type="file" name="business_photos" accept="image/*" multiple />
+              </label>
+
+              <label>
+                Seller name
+                <input type="text" name="seller_name" placeholder="Your full name" required />
+              </label>
+
+              <label>
+                Seller email
+                <input type="email" name="seller_email" placeholder="you@example.com" required />
+              </label>
+
+              <label>
+                Seller phone
+                <input type="tel" name="seller_phone" placeholder="+254..." required />
+              </label>
+
+              <label class="full-width">
+                Additional notes
+                <textarea name="notes" rows="4" placeholder="Optional: revenue, growth potential, or any key details"></textarea>
+              </label>
+            </div>
+
+            <div class="form-note">
+              By submitting this form, you agree that your business details may be reviewed by
+              S. Lakhani for approval and follow-up. Notification of approval will be sent to
+              <strong>s.lakhani1@aim.com</strong>.
+            </div>
+
+            <button type="submit" class="button button-primary">Submit listing</button>
+          </form>
+        </div>
+      </section>
+
+      <section id="contact" class="section section-light contact-section">
+        <div class="container contact-grid">
+          <div>
+            <p class="section-tag">Contact</p>
+            <h2>Get in touch with S. Lakhani</h2>
+            <p>
+              Reach out for business opportunities, seller enquiries, or to request a
+              verification or vetting conversation.
+            </p>
+          </div>
+
+          <div class="contact-box">
+            <form class="inline-form" method="POST" action="https://formspree.io/f/your-contact-form-id">
+              <input type="hidden" name="_subject" value="New Thirdwave contact enquiry" />
+
+              <label>
+                Your name
+                <input type="text" name="name" placeholder="Full name" required />
+              </label>
+
+              <label>
+                Email
+                <input type="email" name="email" placeholder="you@example.com" required />
+              </label>
+
+              <label>
+                Phone
+                <input type="tel" name="phone" placeholder="+254..." />
+              </label>
+
+              <label>
+                Message
+                <textarea name="message" rows="5" placeholder="Tell us what you need" required></textarea>
+              </label>
+
+              <button type="submit" class="button button-primary">Send enquiry</button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <div class="brand footer-brand">
+            <span class="brand-word">thirdwave</span>
+            <span class="brand-subtitle">third wave solutions</span>
+          </div>
+        </div>
+
+        <div class="footer-contact">
+          <p>S. Lakhani</p>
+          <p>Cell: +254733861663</p>
+          <p>Email: s.lakhani1@aim.com</p>
+        </div>
+      </div>
+
+      <div class="container disclaimer">
+        Disclaimer: Businesses listed on this platform are not vetted for financial records.
+        For verification, financial review, and vetting purposes, please contact S. Lakhani
+        directly for further information.
+      </div>
+
+      <div class="container copyright">© <span id="year"></span> thirdwave</div>
+    </footer>
+
+    <script src="script.js"></script>
   </body>
 </html>
